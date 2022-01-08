@@ -66,24 +66,17 @@ const messages = {
     'What does a house wear?  Address',
     "My wife and I decided we don't want kids.  We will tell them tonight",
   ],
+  randomMessage() {
+    function randomNum(arr) {
+      return Math.floor(Math.random() * arr.length);
+    }
+    const randBadJoke = this['bad jokes'][randomNum(this["bad jokes"])];
+    const randDemotiveQuote = this['demotivational quotes'][randomNum(this["demotivational quotes"])];
+    const randDadJoke = this['dad jokes'][randomNum(this["dad jokes"])];
+
+    return `Want to hear a really bad joke?  How about,\n ${randBadJoke}.\n\n Ok maybe something to motivate you for the day!\n ${randDemotiveQuote}.\n Oops!\n\n Well at least this will probably make you laugh,\n ${randDadJoke}`; 
+  }
 };
 
-const randomMessage = () => {
-  console.log(
-    messages['bad jokes'][
-      Math.floor(Math.random() * messages['bad jokes'].length)
-    ]
-  );
-  console.log(
-    messages['demotivational quotes'][
-      Math.floor(Math.random() * messages['demotivational quotes'].length)
-    ]
-  );
-  console.log(
-    messages['dad jokes'][
-      Math.floor(Math.random() * messages['dad jokes'].length)
-    ]
-  );
-};
-// Call the function
-randomMessage();
+console.log(messages.randomMessage());
+
